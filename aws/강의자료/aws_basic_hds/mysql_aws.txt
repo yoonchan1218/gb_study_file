@@ -1,0 +1,19 @@
+> sudo passwd
+> 1234
+> sudo apt update && sudo apt upgrade -y
+> sudo apt install -y tzdata
+> sudo dpkg-reconfigure tzdata
+> sudo date
+> export TZ=Asia/Seoul
+
+> sudo apt install mysql-server (창 나오면 엔터 혹은 →, 엔터)
+> sudo ufw allow mysql
+> sudo systemctl start mysql
+> sudo systemctl enable mysql
+> sudo vi etc/mysql/mysql.conf.d/mysqld.cnf
+ # bind-address = 127.0.0.1  주석처리 또는 삭제
+> sudo etc/init.d/mysql restart
+> sudo usr/bin/mysql -u root -p
+> Enter password 1234
+   MySQL>  show databases;
+   MySQL>  exit

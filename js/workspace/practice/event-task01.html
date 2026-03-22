@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼 클릭 카운터</title>
+</head>
+<body>
+    <p id="count">0</p>
+    <button id="increase">+1</button>
+    <button id="decrease">-1</button>
+    <button id="reset">초기화</button>
+</body>
+<script>
+    // 1. 요소 선택
+    const countDisplay = document.getElementById("count");
+    const increaseBtn = document.getElementById("increase");
+    const decreaseBtn = document.getElementById("decrease");
+    const resetBtn = document.getElementById("reset");
+
+    // 2. +1 버튼
+    increaseBtn.addEventListener("click", (e) => {
+        let current = parseInt(countDisplay.textContent);
+        current++;
+        countDisplay.textContent = current;
+    });
+
+    // 3. -1 버튼
+    decreaseBtn.addEventListener("click", (e) => {
+        let current = parseInt(countDisplay.textContent);
+        if(current > 0) {
+            current--;
+            countDisplay.textContent = current;
+        }
+    });
+
+    // 4. 초기화 버튼
+    resetBtn.addEventListener("click", (e) => {
+        countDisplay.textContent = 0;
+    });
+</script>
+</html>

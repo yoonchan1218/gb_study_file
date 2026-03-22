@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키 이벤트</title>
+</head>
+<body>
+    <h1>키 이벤트</h1>
+    <input type="text" placeholder="이름">
+    <p id="name"></p>
+</body>
+<script>
+    const input = document.querySelector("input[placeholder=이름]");
+    const p = document.getElementById("name");
+
+    // keydown: 누르자 마자, 대입 시 한 박자 느리다.
+    // keyup: 눌렀다 뗐을 때, 대입 시 정확하다.
+    input.addEventListener("keyup", (e) => {
+        p.textContent = e.target.value;
+        // if(e.keyCode === 13) {
+        //     p.textContent = e.target.value;
+        // }
+    });
+</script>
+</html>

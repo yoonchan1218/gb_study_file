@@ -1,0 +1,16 @@
+server:
+  port: 10000
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring?useSSL=false&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+    username: spring
+    password: 1234
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath*:/mapper/*.xml
+  type-aliases-package: com.example.mysql.domain;
+  type-handlers-package: com.example.mysql.mybatis.handler

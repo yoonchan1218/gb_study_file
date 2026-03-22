@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모듈화 실습 02</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+    <!-- 할 일 목록을 20개 불러온다. -->
+    <!-- table 태그를 사용한다. -->
+    <!-- 할 일 중, 완료되지 않은 할 일 내용의 title을 빨간색으로, -->
+    <!-- 완료된 할 일은 녹색으로 출력한다. -->
+    <!-- userId, title 두 개의 정보를 출력한다. -->
+    <div>
+        <button id="button">할 일 불러오기</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>회원 번호</th>
+                <th>할 일</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    
+</body>
+<script src="service.js"></script>
+<script src="layout.js"></script>
+<script src="event.js"></script>
+</html>

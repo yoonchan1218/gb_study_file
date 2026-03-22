@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크 박스</title>
+</head>
+<body>
+    <label>
+        <input type="checkbox" value="등장"> 선택
+    </label>
+    <p id="text"></p>
+</body>
+<script>
+    const checkbox = document.querySelector("input[type=checkbox]");
+    const p = document.getElementById("text");
+
+    checkbox.addEventListener("change", (e) => {
+        if(e.target.checked){
+            p.textContent = e.target.value;
+        }else{
+            p.textContent = "";
+        }
+    });
+</script>
+</html>

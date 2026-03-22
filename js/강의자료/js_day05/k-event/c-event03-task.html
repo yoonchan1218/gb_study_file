@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키 이벤트 실습</title>
+    <style>
+        input {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="이름" autocomplete="off">
+    <ul id="items"></ul>
+</body>
+<script>
+    // 입력한 키 중, 엔터일 경우 ul안에 li태그로 입력한 문자열값을 추가한다.
+    // 이 때, 작성한 값은 사라지게 한다.
+    // ※ 아무것도 입력하지 않고 엔터를 치면, input에 빨간색 테두리 스타일 적용
+    const input = document.querySelector("input[placeholder=이름]");
+    const ul = document.getElementById("items");
+    // const items = document.querySelectorAll("ul li");
+    const tempInputStyle = input.style.border;
+
+    input.addEventListener("keyup", (e) => {
+        if(e.keyCode === 13){
+            if(input.value){
+                let text = `<li>${input.value}</li>`;
+                ul.innerHTML += text;
+                // const li = document.createElement("li");
+                // li.textContent = input.value;
+                // ul.appendChild(li);
+                input.value = "";
+                input.style.border = tempInputStyle;
+            } else {
+                input.style.border = "4px solid red";
+            }
+        }
+    });
+
+    // 동적으로 생성된 태그에는 이벤트 함수 사용이 어렵다.
+    // items.forEach((item) => {
+    //     item.addEventListener("click", (e) => {
+    //         e.target.remove();
+    //     });
+    // });
+
+    // 이벤트 위임을 사용하자
+    ul.addEventListener("click", (e) => {
+        if(e.target.tagName.toLowerCase() === "li"){
+            e.target.remove();
+        }
+    });
+</script>
+</html>

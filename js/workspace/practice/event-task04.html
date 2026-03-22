@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+<form name="signup">
+    <input type="text" name="username" placeholder="아이디 (4~12자)">
+    <p id="username-msg"></p>
+    
+    <input type="password" name="password" placeholder="비밀번호 (8자 이상)">
+    <p id="password-msg"></p>
+    
+    <input type="password" name="passwordConfirm" placeholder="비밀번호 확인">
+    <p id="confirm-msg"></p>
+    
+    <input type="email" name="email" placeholder="이메일">
+    <p id="email-msg"></p>
+    
+    <button type="button" disabled>가입하기</button>
+</form>
+</body>
+<script>
+const userName = signup.username;
+const usernameMsg = document.getElementById("username-msg");
+const password = signup.password;
+const passwordMsg = document.getElementById("password-msg");
+const passwordConfirm = signup.passwordConfirm;
+const confirmMsg = document.getElementById("confirm-msg");
+const email = signup.email;
+const emailMsg = document.getElementById("email-msg");
+const button = document.querySelector("button[type=button]");
+
+const idRegex = /^[a-zA-Z0-9]{4,12}$/;
+const pwRegex = /^.{8,}$/;
+const emailRegex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+
+// 전체 검증 함수
+function checkAllValid() {
+    const isIdValid = idRegex.test(userName.value);
+    const isPwValid = pwRegex.test(password.value);
+    const isConfirmValid = password.value === passwordConfirm.value && passwordConfirm.value !== "";
+    const isEmailValid = emailRegex.test(email.value);
+    
+    button.disabled = !(isIdValid && isPwValid && isConfirmValid && isEmailValid);
+}
+
+userName.addEventListener("blur", (e) => {
+    if(idRegex.test(userName.value)){
+        userName.style.border = "1px solid green";
+        usernameMsg.textContent = "";
+    } else {
+        userName.style.border = "4px solid red";
+        usernameMsg.textContent = "영문+숫자 4~12자로 입력하세요";
+    }
+    checkAllValid();
+});
+
+password.addEventListener("blur", (e) => {
+    if(pwRegex.test(password.value)){
+        password.style.border = "1px solid green";
+        passwordMsg.textContent = "";
+    } else {
+        password.style.border = "4px solid red";
+        passwordMsg.textContent = "8자 이상 입력하세요";
+    }
+    checkAllValid();
+});
+
+passwordConfirm.addEventListener("blur", (e) => {
+    if(password.value === passwordConfirm.value && passwordConfirm.value !== ""){
+        passwordConfirm.style.border = "1px solid green";
+        confirmMsg.textContent = "";
+    } else {
+        passwordConfirm.style.border = "4px solid red";
+        confirmMsg.textContent = "비밀번호가 일치하지 않습니다";
+    }
+    checkAllValid();
+});
+
+email.addEventListener("blur", (e) => {
+    if(emailRegex.test(email.value)){
+        email.style.border = "1px solid green";
+        emailMsg.textContent = "";
+    } else {
+        email.style.border = "4px solid red";
+        emailMsg.textContent = "올바른 이메일 형식이 아닙니다";
+    }
+    checkAllValid();
+});
+
+button.addEventListener("click", (e) => {
+    alert("가입 완료!");
+});
+</script>
+</html>

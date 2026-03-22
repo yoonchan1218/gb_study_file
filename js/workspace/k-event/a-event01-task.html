@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭 이벤트 실습</title>
+    <style>
+        p {
+            color: red;
+        }
+
+        p.active {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form action="" name="form">
+        <div>
+            <input type="text" name="memberId" placeholder="아이디" />
+        </div>
+        <p id="id-message"></p>
+        <div>
+            <input
+                type="password"
+                name="memberPassword"
+                placeholder="비밀번호"
+            />
+        </div>
+        <p id="password-message"></p>
+        <button type="button">검사</button>
+    </form>
+</body>
+<script>
+    const memberId = form.memberId;
+    const memberIdMessage = document.getElementById("id-message");
+
+    const memberPassword = form.memberPassword;
+    const memberPasswordMessage = document.getElementById("password-message");
+
+    const button = document.querySelector("button[type=button]");
+
+    button.addEventListener("click", (e) => {
+        // 아이디를 검사
+        // 1. 아이디가 입력되지 않았을 때 적절한 메세지를 id-message에 빨간색으로 작성
+        // 2. 아이디가 입력되었을 때 적절한 메세지를 id-message에 녹색으로 작성
+        if(!memberId.value) {
+            memberIdMessage.textContent = "아이디를 입력해주세요.";
+            memberIdMessage.classList.remove("active");
+        }else {
+            memberIdMessage.textContent = "멋진 아이디네요!";
+            memberIdMessage.classList.add("active");
+        }
+        
+        // 비밀번호를 검사
+        // 1. 비밀번호가 입력되지 않았을 때 적절한 메세지를 password-message에 빨간색으로 작성
+        // 2. 비밀번호가 입력되었을 때 적절한 메세지를 password-message에 녹색으로 작성
+        if(!memberPassword.value) {
+            memberPasswordMessage.textContent = "비밀번호를 입력해주세요.";
+            memberPasswordMessage.classList.remove("active");
+        }else {
+            memberPasswordMessage.textContent = "사용가능한 비밀번호입니다.";
+            memberPasswordMessage.classList.add("active");
+        }
+    });
+</script>
+</html>

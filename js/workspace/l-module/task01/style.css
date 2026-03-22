@@ -1,0 +1,36 @@
+* {
+    font-size: 1.2rem;
+}
+
+table, div.input-container {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#button-wrap {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    width: 48%;
+}
+
+input {
+    width: 49%;
+}
+
+table, tr, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td, th {
+    display: inline-block;
+    width: 195px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

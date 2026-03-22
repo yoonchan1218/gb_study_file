@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>unsubscribe error capture</title>
+  <style>
+    :root {
+      --brand: #7ba882;
+      --brand-dark: #006e3f;
+      --line: #dfe4ea;
+      --text: #232629;
+      --muted: #757c85;
+      --danger: #e25454;
+      --bg: #f4f6f8;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    }
+
+    html, body {
+      margin: 0;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .canvas {
+      width: 1280px;
+      height: 720px;
+      padding: 44px 56px;
+      background: linear-gradient(180deg, #ffffff 0 88px, var(--bg) 88px);
+    }
+
+    .panel {
+      width: 760px;
+      margin: 78px auto 0;
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 34px 40px 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .title {
+      margin: 0 0 12px;
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .desc {
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .warning {
+      padding: 18px 20px;
+      border: 1px solid #f0d7d7;
+      background: #fff8f8;
+      color: #8b4c4c;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      border-top: 1px solid var(--line);
+    }
+
+    .row:last-of-type {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .label {
+      padding: 22px 18px;
+      color: #505760;
+      font-size: 16px;
+      font-weight: 700;
+      background: #fafbfc;
+    }
+
+    .value {
+      padding: 18px 22px;
+    }
+
+    .readonly {
+      height: 52px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .error-input {
+      height: 52px;
+      width: 100%;
+      border: 2px solid var(--danger);
+      padding: 0 16px;
+      font-size: 16px;
+      color: #333;
+      background: #fff;
+      outline: none;
+    }
+
+    .error-text {
+      margin-top: 10px;
+      color: var(--danger);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .agree {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 26px 0 22px;
+      color: #444b54;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .agree .box {
+      width: 20px;
+      height: 20px;
+      border: 1px solid #c7ced6;
+      background: #fff;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+    }
+
+    .submit {
+      min-width: 170px;
+      height: 62px;
+      border: 0;
+      background: var(--brand);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="panel">
+      <h1 class="title">회원탈퇴</h1>
+      <p class="desc">본인 확인을 위해 탈퇴요청자 이름을 다시 입력해야 합니다. 입력값이 다르면 즉시 오류 메시지를 표시합니다.</p>
+      <div class="warning">
+        입력한 이름이 계정 정보와 다르면 탈퇴할 수 없습니다.<br>
+        필수값이 정확히 일치해야 탈퇴 버튼 검증이 통과됩니다.
+      </div>
+
+      <div class="row">
+        <div class="label">아이디 (필수)</div>
+        <div class="value"><div class="readonly">user_demo</div></div>
+      </div>
+      <div class="row">
+        <div class="label">탈퇴요청자 (필수)</div>
+        <div class="value">
+          <input class="error-input" value="홍길순" aria-label="탈퇴요청자 이름">
+          <div class="error-text">회원 정보의 이름과 일치하지 않습니다. 다시 입력해주세요.</div>
+        </div>
+      </div>
+
+      <div class="agree"><span class="box"></span>유의 사항을 모두 확인하였으며, 이에 동의합니다.</div>
+      <div class="actions"><button class="submit">탈퇴하기</button></div>
+    </div>
+  </div>
+</body>
+</html>

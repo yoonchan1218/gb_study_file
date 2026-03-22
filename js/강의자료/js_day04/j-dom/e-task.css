@@ -1,0 +1,19 @@
+body {
+    font-family: 'Jua';
+}
+
+table {
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+thead {
+    background-color: #fff9c4;
+}
+
+fieldset {
+    text-align: center;
+    width: 30%;
+    margin: 0 auto;
+}

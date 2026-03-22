@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>qna category modal capture</title>
+  <style>
+    :root {
+      --brand: #006e3f;
+      --brand-soft: #eef6f1;
+      --line: #d8dee5;
+      --line-dark: #bfc8d2;
+      --text: #232629;
+      --muted: #6d7480;
+      --bg: #f3f5f7;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    }
+
+    html, body {
+      margin: 0;
+      width: 1600px;
+      height: 628px;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .canvas {
+      position: relative;
+      width: 1600px;
+      height: 628px;
+      padding: 26px 34px;
+      background:
+        linear-gradient(180deg, #ffffff 0 96px, transparent 96px),
+        var(--bg);
+    }
+
+    .top-panel {
+      width: 1040px;
+      padding: 0 0 18px;
+    }
+
+    .checkbox-row {
+      display: flex;
+      gap: 68px;
+      align-items: center;
+      margin-bottom: 16px;
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .check {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .box {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--line);
+      background: #fff;
+      position: relative;
+    }
+
+    .box.checked {
+      border-color: #9bb39a;
+      background: #f4fbf6;
+    }
+
+    .box.checked::after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 1px;
+      width: 9px;
+      height: 15px;
+      border-right: 3px solid var(--brand);
+      border-bottom: 3px solid var(--brand);
+      transform: rotate(40deg);
+    }
+
+    .selector-row {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .selector,
+    .search {
+      height: 54px;
+      border: 2px solid #98ba9f;
+      background: #fff;
+      color: #7a8a7d;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+    }
+
+    .selector {
+      width: 430px;
+    }
+
+    .search {
+      width: 360px;
+      border-color: #dfe4ea;
+      color: #8b9097;
+      justify-content: flex-start;
+    }
+
+    .caret {
+      width: 14px;
+      height: 14px;
+      border-right: 3px solid #7ea486;
+      border-bottom: 3px solid #7ea486;
+      transform: rotate(45deg) translateY(-2px);
+    }
+
+    .divider {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 96px;
+      height: 1px;
+      background: #e8edf1;
+    }
+
+    .modal {
+      position: absolute;
+      left: 34px;
+      top: 108px;
+      width: 1100px;
+      height: 448px;
+      background: #fff;
+      border: 2px solid #8d95a2;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+      padding: 28px 42px 24px;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .modal-title {
+      margin: 0;
+      color: var(--text);
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    .close {
+      color: #c4c8ce;
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 300;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      height: 72px;
+      margin-bottom: 20px;
+      border: 1px solid var(--line-dark);
+    }
+
+    .tab {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      color: #666b73;
+      background: #fff;
+      border-right: 1px solid var(--line-dark);
+    }
+
+    .tab:last-child {
+      border-right: 0;
+    }
+
+    .tab.active {
+      color: #7fa87f;
+      box-shadow: inset 0 0 0 1px #9fb6a5;
+    }
+
+    .chooser {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      height: 244px;
+      border: 1px solid var(--line-dark);
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .left-list,
+    .right-list {
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .left-list {
+      border-right: 1px solid var(--line-dark);
+    }
+
+    .item {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      color: #444a52;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .item + .item {
+      margin-top: 6px;
+    }
+
+    .item.active {
+      background: #e5f0fa;
+      color: #6f9071;
+    }
+
+    .item .arrow {
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid #93a8be;
+      border-bottom: 2px solid #93a8be;
+      transform: rotate(-45deg);
+      margin-right: 4px;
+    }
+
+    .right-list .item {
+      height: 32px;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 0 26px;
+    }
+
+    .right-list .item.active {
+      background: #e5f0fa;
+      color: #7ba17f;
+    }
+
+    .scroll {
+      position: absolute;
+      right: 10px;
+      top: 18px;
+      width: 10px;
+      height: 210px;
+      border-radius: 999px;
+      background: #eceff3;
+    }
+
+    .scroll::after {
+      content: "";
+      position: absolute;
+      left: 1px;
+      top: 28px;
+      width: 8px;
+      height: 110px;
+      border-radius: 999px;
+      background: #80848b;
+    }
+
+    .apply-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
+    .apply {
+      width: 136px;
+      height: 72px;
+      border: 0;
+      background: #8aac85;
+      color: #fff;
+      font-size: 19px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="top-panel">
+      <div class="checkbox-row">
+        <span class="check"><span class="box checked"></span>직무선배</span>
+        <span class="check"><span class="box"></span>기업선배</span>
+      </div>
+      <div class="selector-row">
+        <div class="selector">웹기획 <span class="caret"></span></div>
+        <div class="search">기업명 검색</div>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <div class="modal">
+      <div class="modal-header">
+        <h1 class="modal-title">직무/산업 선택</h1>
+        <div class="close">×</div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active">직무</div>
+        <div class="tab">산업</div>
+      </div>
+
+      <div class="chooser">
+        <div class="left-list">
+          <div class="item active">기획·전략 <span class="arrow"></span></div>
+          <div class="item">법무·사무·총무</div>
+          <div class="item">인사·HR</div>
+          <div class="item">회계·세무</div>
+          <div class="item">마케팅·광고·MD</div>
+          <div class="item">AI·개발·데이터</div>
+          <div class="item">디자인</div>
+          <div class="item">물류·무역</div>
+          <div class="item">운전·운송·배송</div>
+          <div class="scroll"></div>
+        </div>
+        <div class="right-list">
+          <div class="item">경영·비즈니스기획</div>
+          <div class="item">웹기획</div>
+          <div class="item">마케팅기획</div>
+          <div class="item">PL·PM·PO</div>
+          <div class="item">컨설턴트</div>
+          <div class="item">CEO·COO·CTO</div>
+          <div class="item active">AI기획자 <span class="arrow"></span></div>
+          <div class="item">AI사업전략</div>
+        </div>
+      </div>
+
+      <div class="apply-row">
+        <button class="apply">적용</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

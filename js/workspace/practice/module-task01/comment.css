@@ -1,0 +1,32 @@
+* {
+    font-size: 1.2rem;
+}
+
+table, div {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#button-wrap {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    width: 48%;
+}
+
+table, tr, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td, th {
+    width: 195px;
+}
+
+input[type=text] {
+    width: 402px;
+}

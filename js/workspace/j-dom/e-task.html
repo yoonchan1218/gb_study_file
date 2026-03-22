@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>요금표</title>
+        <link rel="stylesheet" href="e-task.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <table border="1">
+            <caption>
+                요금표
+            </caption>
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>요금</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>아동</td>
+                    <td>무료</td>
+                </tr>
+                <tr>
+                    <td>청소년</td>
+                    <td>2000원</td>
+                </tr>
+                <tr>
+                    <td>성인</td>
+                    <td>5000원</td>
+                </tr>
+            </tbody>
+        </table>
+        <fieldset>
+            <legend>구분</legend>
+            <input type="text" id="input" />
+            <input type="button" value="확인" onclick="send()"/>
+        </fieldset>
+    </body>
+    <script src="e-task.js"></script>
+</html>

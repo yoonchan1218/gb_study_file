@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체를 동적으로 생성, 삽입, 삭제</title>
+</head>
+<body>
+    <p>DOM 트리에 동적으로 객체를 삽입할 수 있다.</p>
+    <p>
+        createElement(), append(), appendChild(), prepend() insertBefore(),
+        before(), after(), removeChild()
+    </p>
+    <p>위 8개의 메소드를 이용해서 새로운 객체를 생성, 삽입, 삭제한다.</p>
+    <div id="new-object">
+        <p><strong>생성될 객체들</strong></p>
+        <p>마지막 부분</p>
+    </div>
+</body>
+<script>
+    const wrap = document.getElementById("new-object");
+    const strong = wrap.firstElementChild.firstElementChild;
+    const p = document.createElement("p");
+    const firstP = wrap.firstElementChild;
+    const lastP = wrap.lastElementChild;
+    const h = document.createElement("h1");
+
+    p.textContent = "새로 생성된 객체";
+    p.style.color = "red";
+    p.style.fontSize = "20px";
+
+    h.innerText = "반갑습니다.";
+
+    // 자식 요소로 맨 아래에 추가
+    // append(): 문자열(내용, 텍스트)도 추가 가능
+    // appendChild(): 객체만 추가 가능
+    // wrap.append(p);
+    // wrap.appendChild(p);
+
+    // 자식 요소 맨 위로 추가
+    // wrap.prepend(p);
+
+    // 자식 요소로 원하는 위치에 추가
+    // wrap.insertBefore(p, lastP);
+
+    // 자식 요소가 아닌 형제자매로 추가
+    // wrap.before(h);
+    // wrap.after(h);
+
+    // 자식 태그 삭제
+    // wrap.removeChild(lastP);
+
+    // 자기 자신 삭제
+    // lastP.remove();
+
+    // 이전 요소, 다음 요소
+    // wrap.previousElementSibling
+    // wrap.nextElementSibling
+    
+    // 부모 요소
+    // wrap.parentElement
+
+    // 가장 가까운 부모 요소
+    // console.log(lastP.closest("body"));
+
+</script>
+</html>

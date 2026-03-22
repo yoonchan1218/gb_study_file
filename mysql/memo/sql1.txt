@@ -1,0 +1,202 @@
+ “병원 진료 예약 시스템을 제작하려고 합니다.
+병원에는 여러 명의 의사가 근무합니다.
+의사는 이름과 전문 과목을 가집니다.
+환자는 이름과 연락처를 가집니다.
+하나의 의사는 여러 진료 시간대를 가질 수 있습니다.
+환자는 특정 의사의 특정 진료 시간대를 예약할 수 있습니다.
+진료 예약에는 예약 날짜와 예약 상태가 필요합니다.”
+
+의사		환자		진료시간		예약
+						
+이름		이름					날짜
+전문과목	연락처				상태
+
+create table tbl_doctor(
+id bigint unsigned primary key,
+doctor_name varchar(255) not null,
+dotcor_major varchar(255) not null
+);
+
+create table tbl_patient(
+id bigint unsigned primary key,
+patient_name varchar(255) not null,
+patient_phone varchar(255) not null
+);
+
+create table tbl_clinic(
+id bigint unsigned primary key,
+clinic_time varchar(255) not null,
+doctor_id bigint unsigned not null,
+patient_id bigint unsigned not null,
+constraint fk_clinic_doctor foriegn key(doctor_id)
+references tbl_doctor(id),
+constraint fk_clinic_patient foriegn key(patient_id)
+references tbl_patient(id)
+);
+
+create table tbl_appointment(
+id bigint unsigned primary key,
+appointment_date date,
+appointment_status enum('complete', 'cancel', 'wait') default 'wait',
+clinic_id bigint unsigned not null,
+constraint fk_appointment_clinic foriegn key(clinic_id)
+references tbl_clinic(id)
+);
+
+
+“공유 오피스 좌석 예약 시스템을 제작하려고 합니다.
+하나의 건물에는 여러 개의 층이 있습니다.
+각 층에는 여러 개의 좌석이 존재합니다.
+좌석은 고정 좌석과 자유 좌석으로 나뉩니다.
+이용자는 좌석을 예약할 수 있습니다.
+좌석 예약은 날짜와 이용 상태를 가집니다.
+하나의 좌석은 하루에 여러 번 예약될 수 없습니다.”
+
+건물 				층				좌석					이용자					예약
+
+이름				층				고정					이름						날짜
+위치				건물fk			자유					이메일					이용상태
+대표번호							층fk					폰번호					이용자fk
+													건물fk	
+create table tbl_building(
+id bigint unsigned primary key,
+building_name varchar(255) not null,
+building_address varchar(255) not null,
+building_address_detail varchar(255) not null,
+building_phone varchar(255) not null
+);
+
+create table tbl_floar(
+id bigint unsigned primary key,
+floar_number int not null,
+building_id bigint unsigned not null,
+constraint fk_floar_building foriegn key(building_id)
+references tbl_building(id)
+);
+
+create table tbl_seat(
+id bigint unsigned primary key,
+seat_pin varchar(255),
+seat_free varchar(255),
+floar_id unsigned not null,
+constraint fk_seat_floar foriegn key(floar_id)
+references tbl_floar(id)
+);
+
+create table tbl_user(
+id bigint unsigned primary key,
+user_name varchar(255) not null,
+user_email varchar(255) not null,
+user_phone varchar(255) not null,
+building_id bigint unsigned not null,
+constraint fk_user_building foriegn key(building_id)
+references tbl_building(id)
+);
+
+create table tbl_reservation(
+id bigint unsinged primary key,
+reservation_date date,
+reservateion_status enum('complete', 'cancel', 'wait') default 'wait',
+user_id bigint unsigned not null,
+constraint fk_reservation_user foriegn key(user_id)
+references tbl_user(id)
+);
+
+
+
+“스터디 카페 좌석 예약 시스템을 제작하려고 합니다.
+스터디 카페에는 여러 개의 지점이 존재합니다.
+각 지점에는 여러 개의 좌석이 있습니다.
+좌석은 1인석과 4인석으로 구분됩니다.
+이용자는 좌석을 예약할 수 있습니다.
+좌석 예약은 사용 날짜, 이용 시작 시간, 이용 종료 시간, 예약 상태를 가집니다.
+하나의 좌석은 같은 날짜에 시간이 겹쳐서 예약될 수 없습니다.”
+
+
+스터디 카페			좌석 			이용자 			예약				
+														
+이름				1인석			이름				사용날짜		
+주소				4인석			번호				시작 시간
+디테일주소			스터디카페fk	주소				종료 시간
+번호											예약 상태
+											이용자fk		
+											좌석fk
+create table tbl_study_cafe(
+id bigint unsigned primary key,
+study_cafe_name varchar(255) not null,
+study_cafe_address varchar(255) not null,
+study_cafe_address_detail varchar(255) not null,
+study_cafe_phone varchar(255) not null
+);
+
+create table tbl_seat(
+id bigint unsigned primary key,
+seat_type enum('solo', 'four') not null,
+study_cafe_id bigint unsigned not null,
+constraint fk_seat_study_cafe foriegn key(study_cafe_id)
+references tbl_study_cafe(id)
+);
+
+create table tbl_user(
+id bigint unsigned primary key,
+user_name varchar(255) not null,
+user_phone varchar(255) not null,
+user_email varchar(255) not null,
+user_address varchar(255) not null,
+user_address_detail varchar(255) not null
+);
+
+create table tbl_reservation(
+id bigint unsigned primary key,
+reservation_date datetime not null,
+reservation_start datetime not null,
+reservation_end datetime not null,
+reservation_status enum('complete', 'cancel', 'wait') default 'wait',
+user_id bigint unsigned not null, 
+seat_id bigint unsigned not null,
+constraint fk_reservation_user foriegn key(user_id)
+references tbl_user(id),
+constraint fk_reservation_seat foriegn key(seat_id)
+references tbl_seat(id)
+);
+
+“기차 예매 시스템을 구축하려고 합니다.
+이 시스템은 여러 개의 역과 여러 개의 열차 노선을 관리합니다.
+고객은 회원 번호, 이름, 이메일이 필요합니다.
+역은 역 코드, 역 이름, 도시, 국가가 필요합니다.
+열차 노선은 노선 번호, 운행 회사, 출발 시각, 도착 시각, 출발 역, 도착 역을 가집니다.
+노선에는 좌석 등급이 존재하며, 등급 코드, 등급 이름, 가격 배수가 있습니다.
+고객은 여러 번 예매할 수 있으며, 하나의 예매에는 여러 승객이 포함될 수 있습니다.
+좌석 배정에는 배정 번호, 예매 번호, 승객 번호, 노선 번호, 좌석 번호가 필요합니다.”
+
+
+역		열차노선			고객			예매 			좌석			노선	   			
+
+코드		번호				이름			좌석fk			이름			좌석등급
+이름		출발시각			번호			고객fk						등급코드
+도시		도착시각			주소									등급이름
+국가		출발역			이메일								가격배수
+		도착역
+
+5. CASCADE 옵션 정리
+옵션				부모 삭제 시 동작					사용 예시
+CASCADE    		자식도 함께 삭제					주문-주문상품 (주문 삭제하면 상품도 삭제)
+RESTRICT			자식이 있으면 삭제 불가			카테고리-상품 (상품 있으면 카테고리 삭제 불가)
+SET NULL			자식의 FK를 NULL로				회원-주문 (회원 탈퇴해도 주문 기록 보존)
+NO ACTION		RESTRICT와 동일-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

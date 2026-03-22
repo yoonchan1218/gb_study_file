@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table 태그 병합 - 실습</title>
+    <style>
+        table, tr, td, th {
+            text-align: center;
+            border: 1px solid black;
+            width: 450px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="2">1</td>
+            <td rowspan="2">3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td colspan="3">10</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 썸네일</title>
+    <style>
+        #wrap {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        div.image {
+            cursor: pointer;
+            background-image: url(images/add.png);
+            background-size: 100% 100%;
+            width: 100%;
+            height: 100%;
+        }
+
+        div.cancel {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-image: url(./images/cancel.png);
+            background-size: 100% 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>이미지 썸네일</h1>
+    <div id="wrap">
+        <label for="attach">
+            <div class="image">
+            </div>
+        </label>
+        <div class="cancel" style="display: none;"></div>
+    </div>
+    
+    <input type="file" id="attach" style="display: none;">
+</body>
+<script>
+    const input = document.getElementById("attach");
+    const thumbnail = document.querySelector("div.image");
+    const cancel = document.querySelector("div.cancel");
+
+    input.addEventListener("change", (e) => {
+        const [file] = e.target.files;
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.addEventListener("load", (e) => {
+            const path = e.target.result;
+            
+            if(path.includes("image")){
+                thumbnail.style.backgroundImage = `url(${path})`;
+            }else {
+                thumbnail.style.backgroundImage = `url(./images/attach.png)`;
+            }
+        });
+
+        cancel.style.display = "block";
+    });
+
+    cancel.addEventListener("click", (e) => {
+        input.value = "";
+        cancel.style.display = "none";
+        thumbnail.style.backgroundImage = `url(./images/add.png)`;
+    });
+</script>
+</html>

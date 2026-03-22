@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" href="/assets/img/favicon.ico" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KJ4SSHGB');</script>
+    <!-- End Google Tag Manager -->
+    <!--12qhfyh--><meta name="facebook-domain-verification" content="u2sdai1zdn9i45ncuklk6ejm0cd5kb"/> <!----><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SOLAPI","url":"${siteConfig.url}","logo":"${siteConfig.url}/img/logo.svg","description":"${siteConfig.description}","contactPoint":{"@type":"ContactPoint","telephone":"1866-2596","contactType":"customer service","availableLanguage":"Korean"}}</script><!----> <!----><script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "iihkjl7qgo");
+  </script><!----> <!----><script src="https://cdn.solapi.com/sdk/crm-sdk/stable/solapi-crm.min.js"></script><!----> <!----><script type="text/javascript">
+    SolapiCRM.init({
+      trackingKey: 'tk_live_yzOn9wX-3VzsvGwq11z80FPDWDUz7Z64aS8ci-VV',
+      entityId: 'CRMET1260224014815585h4Zrn1cXXmM',
+      autoPageView: true
+    });
+  </script><!----><!----><!--paandh--><link rel="stylesheet" href="/css/font.css"/> <link rel="stylesheet" href="/css/reset.css"/> <link rel="stylesheet" href="/css/style.css"/> <link rel="stylesheet" href="/css/slick.css"/> <link rel="stylesheet" href="/css/responsive.css"/> <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/><!---->
+		<link href="./_app/immutable/assets/DateRangePicker.DYfT5HrE.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/DocumentVersionSelector.BGmZ5IdV.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/CardGrid.YwQW9FYj.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/PageContainer.B_YTuTW-.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/MobileSidebarOverlay.CMqj6ABN.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/0.1CG6iOMr.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/ErrorPage.CTvoQrm3.css" rel="stylesheet">
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJ4SSHGB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div style="display: contents"><!--[--><!--[0--><!--[--><!--[-1--><!--]--> <!--[-1--><div class="mobile-menu" style="top: 60px; height: calc(100% - 60px); padding-top: 24px;"><!--[--><div class="service-box"><!--[--><!--[-1--><!--]--> <!--[--><a href="/msg">문자메시지・알림톡 <!--[-1--><!--]--></a><a href="/rcs">3세대 문자 RCS <!--[-1--><!--]--></a><a href="/mysite">문자발송 사이트 빌더 <!--[-1--><!--]--></a><a href="/shortlink">단축 URL <!--[-1--><!--]--></a><!--]--><!--[-1--><!--]--> <!--[--><a href="/pricing">가격정책 <!--[-1--><!--]--></a><a href="https://console.solapi.com/apps" target="_blank">앱스토어 <!--[-1--><!--]--></a><!--]--><!--]--></div><div class="service-box"><!--[--><!--[-1--><!--]--> <!--[--><a href="/auto">자동화 문자 <!--[0--><span>NO-CODE</span><!--]--></a><a href="/commerce">커머스 자동화 <!--[-1--><!--]--></a><a href="/crm#automation">CRM 자동화 <!--[0--><span>NEW</span><!--]--></a><a href="/api">API 간편연동 <!--[-1--><!--]--></a><!--]--><!--]--></div><div class="service-box"><!--[--><!--[-1--><!--]--> <!--[--><a href="/crm">서비스 소개 <!--[0--><span>NEW</span><!--]--></a><a href="/crm/guide">이용 가이드 <!--[-1--><!--]--></a><a href="/crm/docs">기능 문서 <!--[-1--><!--]--></a><!--]--><!--]--></div><div class="service-box"><!--[--><!--[-1--><!--]--> <!--[--><a href="/guides">이용 가이드 <!--[-1--><!--]--></a><a href="/updates">업데이트 노트 <!--[-1--><!--]--></a><a href="/notices">공지사항 <!--[-1--><!--]--></a><a href="/blog">블로그 <!--[-1--><!--]--></a><!--]--><!--[-1--><!--]--> <!--[--><a href="https://developers.solapi.com" target="_blank">개발자 문서 <!--[-1--><!--]--></a><a href="https://community.solapi.com" target="_blank">커뮤니티 <!--[-1--><!--]--></a><!--]--><!--]--></div><!--]--> <div class="desc-box"><!--[--><!--]--></div> <!--[-1--><!--]--> <div class="btn-area"><!--[0--><a href="https://console.solapi.com/oauth2/trial-login">체험하기</a><!--]--> <!--[0--><a href="https://console.solapi.com/login">시작하기</a><!--]--></div></div><!----> <header class="landing-nav svelte-paandh"><section id="sec00"><div class="inner"><div class="sec00"><!--[0--><a href="/" class="logo"><img src="/img/logo.svg" alt="SOLAPI"/></a><!--]--> <div class="gnb"><!--[--><!--[0--><div class="service-area dropdown-compact dropdown-center"><div class="service-wrap">메시지 <span class="icon"><img src="/assets/img/header-icon.svg" alt=""/></span></div> <div class="service-box"><!--[--><div class="left"><!--[-1--><!--]--> <!--[--><a href="/msg">문자메시지・알림톡 <!--[-1--><!--]--></a><a href="/rcs">3세대 문자 RCS <!--[-1--><!--]--></a><a href="/mysite">문자발송 사이트 빌더 <!--[-1--><!--]--></a><a href="/shortlink">단축 URL <!--[-1--><!--]--></a><!--]--></div> <!--[0--><div class="line"></div><!--]--><div class="right"><!--[-1--><!--]--> <!--[--><a href="/pricing">가격정책 <!--[-1--><!--]--></a><a href="https://console.solapi.com/apps" target="_blank">앱스토어 <!--[-1--><!--]--></a><!--]--></div> <!--[-1--><!--]--><!--]--></div></div><!--]--><!--[0--><div class="service-area dropdown-compact support dropdown-center"><div class="service-wrap">자동화 <span class="icon"><img src="/assets/img/header-icon.svg" alt=""/></span></div> <div class="service-box"><!--[--><div class="left"><!--[-1--><!--]--> <!--[--><a href="/auto">자동화 문자 <!--[0--><span>NO-CODE</span><!--]--></a><a href="/commerce">커머스 자동화 <!--[-1--><!--]--></a><a href="/crm#automation">CRM 자동화 <!--[0--><span>NEW</span><!--]--></a><a href="/api">API 간편연동 <!--[-1--><!--]--></a><!--]--></div> <!--[-1--><!--]--><!--]--></div></div><!--]--><!--[0--><div class="service-area dropdown-compact support dropdown-center"><div class="service-wrap">CRM <span class="icon"><img src="/assets/img/header-icon.svg" alt=""/></span></div> <div class="service-box"><!--[--><div class="left"><!--[-1--><!--]--> <!--[--><a href="/crm">서비스 소개 <!--[0--><span>NEW</span><!--]--></a><a href="/crm/guide">이용 가이드 <!--[-1--><!--]--></a><a href="/crm/docs">기능 문서 <!--[-1--><!--]--></a><!--]--></div> <!--[-1--><!--]--><!--]--></div></div><!--]--><!--[0--><div class="service-area dropdown-compact dropdown-center"><div class="service-wrap">가이드 <span class="icon"><img src="/assets/img/header-icon.svg" alt=""/></span></div> <div class="service-box"><!--[--><div class="left"><!--[-1--><!--]--> <!--[--><a href="/guides">이용 가이드 <!--[-1--><!--]--></a><a href="/updates">업데이트 노트 <!--[-1--><!--]--></a><a href="/notices">공지사항 <!--[-1--><!--]--></a><a href="/blog">블로그 <!--[-1--><!--]--></a><!--]--></div> <!--[0--><div class="line"></div><!--]--><div class="right"><!--[-1--><!--]--> <!--[--><a href="https://developers.solapi.com" target="_blank">개발자 문서 <!--[-1--><!--]--></a><a href="https://community.solapi.com" target="_blank">커뮤니티 <!--[-1--><!--]--></a><!--]--></div> <!--[-1--><!--]--><!--]--></div></div><!--]--><!--]--></div> <div class="btn-area"><!--[-1--><!--]--> <!--[0--><a href="https://console.solapi.com/oauth2/trial-login" class="free">체험하기</a><!--]--> <!--[0--><a href="https://console.solapi.com/login" class="start">시작하기</a><!--]--></div>  <div class="menu"><img src="/assets/img/menu.svg" alt="Menu"/> <img src="/assets/img/close.svg" alt="Close"/></div></div></div></section><!----></header> <main class="landing-content svelte-paandh" style="padding-top:60px"><!--[-1--><!--[--><div class="error-page svelte-17m9ucg"><span class="error-code svelte-17m9ucg">404</span> <p class="error-message svelte-17m9ucg">Page not found</p> <a href="/" class="back-link svelte-17m9ucg">돌아가기</a></div><!--]--><!--]--><!----><!----></main> <footer class="cms-footer svelte-l2rynm"><div class="cms-footer-inner svelte-l2rynm"><div class="cms-footer-content svelte-l2rynm"><div class="cms-footer-left svelte-l2rynm"><!--[0--><div class="cms-footer-logo svelte-l2rynm"><img src="/img/logo.svg" alt="SOLAPI" class="svelte-l2rynm"/></div><!--]--> <!--[0--><!--[--><p class="svelte-l2rynm"><span class="svelte-l2rynm">대표 :</span> 최대성</p><p class="svelte-l2rynm"><span class="svelte-l2rynm">주소 :</span> 서울시 서초구 강남대로 359 대우도씨에빛2 1409호, 1410호</p><p class="svelte-l2rynm"><span class="svelte-l2rynm">Biz ID :</span> 217-81-33791</p><p class="svelte-l2rynm"><span class="svelte-l2rynm">TEL :</span> 1866-2596</p><!--]--><!--]--> <!--[0--><p class="copyright svelte-l2rynm">© 2008 ~ 2026 솔라피(주)</p><!--]--></div> <div class="cms-footer-right svelte-l2rynm"><!--[--><div class="cms-footer-section svelte-l2rynm"><p class="cms-footer-section-title svelte-l2rynm">서비스 안내</p> <div class="cms-footer-section-menu svelte-l2rynm"><!--[--><a href="/msg" class="svelte-l2rynm">문자메시지/알림톡</a><a href="/rcs" class="svelte-l2rynm">3세대 문자 RCS</a><a href="/mysite" class="svelte-l2rynm">문자발송 사이트 빌더</a><a href="/shortlink" class="svelte-l2rynm">단축 URL</a><a href="/auto" class="svelte-l2rynm">자동화 문자</a><a href="/commerce" class="svelte-l2rynm">커머스 자동화</a><a href="/api" class="svelte-l2rynm">API 간편연동</a><!--]--></div></div><div class="cms-footer-section svelte-l2rynm"><p class="cms-footer-section-title svelte-l2rynm">솔라피 문서</p> <div class="cms-footer-section-menu svelte-l2rynm"><!--[--><a href="/guides" class="svelte-l2rynm">이용 가이드</a><a href="https://developers.solapi.com" target="_blank" class="svelte-l2rynm">개발자 문서</a><a href="/updates" class="svelte-l2rynm">업데이트 노트</a><a href="/notices" class="svelte-l2rynm">공지사항</a><a href="/notices/terms-of-service" class="svelte-l2rynm">서비스이용약관</a><a href="/privacy" class="svelte-l2rynm">개인정보처리방침</a><!--]--></div></div><div class="cms-footer-section svelte-l2rynm"><p class="cms-footer-section-title svelte-l2rynm">채널</p> <div class="cms-footer-section-menu svelte-l2rynm"><!--[--><a href="/blog" class="svelte-l2rynm">블로그</a><a href="https://x.com/xsolapi" target="_blank" class="svelte-l2rynm">X 엑스</a><a href="https://community.solapi.com" target="_blank" class="svelte-l2rynm">커뮤니티</a><!--]--></div></div><!--]--></div></div></div></footer><!----><!--]--> <!----><!--]--><!--]--> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_mnwekd = {
+						base: new URL(".", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("./_app/immutable/entry/start.DDm8eXs5.js"),
+						import("./_app/immutable/entry/app.BjGi8VFo.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 1],
+							data: [{type:"data",data:{isContentRoute:false,contentLayoutType:null,isContentIndexPage:false},uses:{url:1}}],
+							form: null,
+							error: {message:"Page not found"},
+							status: 404
+						});
+					});
+				}
+			</script>
+		</div>
+  </body>
+</html>

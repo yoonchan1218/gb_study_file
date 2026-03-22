@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>training-program attach popup capture</title>
+  <style>
+    :root {
+      --brand: #006e3f;
+      --brand-soft: #e8f5e9;
+      --line: #e8e8e8;
+      --muted: #666;
+      --soft-bg: #f8f9fa;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    }
+
+    html, body {
+      margin: 0;
+      width: 1600px;
+      height: 1200px;
+      overflow: hidden;
+      background: #eef2f4;
+    }
+
+    .canvas {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+    }
+
+    .apply-modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.42);
+    }
+
+    .apply-modal {
+      position: relative;
+      z-index: 1;
+      width: 480px;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    .page-content {
+      padding: 24px;
+    }
+
+    .apply-job-info {
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .job-title {
+      margin: 0 0 12px;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.45;
+      color: #222;
+    }
+
+    .job-meta {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .job-badge {
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: #f5f5f5;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .job-description {
+      margin: 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .form-section {
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .resume-info,
+    .contact-info {
+      padding: 16px;
+    }
+
+    .resume-tag {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--brand);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      margin-right: 8px;
+    }
+
+    .resume-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .resume-date,
+    .contact-label {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+    }
+
+    .button-grid {
+      padding: 16px;
+    }
+
+    .button-item {
+      width: 100%;
+      padding: 14px;
+      border: 1px dashed #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .page-footer {
+      padding: 16px 24px 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-btn {
+      width: 100%;
+      padding: 16px;
+      border: 0;
+      border-radius: 12px;
+      background: #7ba882;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .layer-popup {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+
+    .layer-popup-dim {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .layer-popup-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      transform: translate(-50%, -50%);
+      border-radius: 16px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .popup-title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .popup-close {
+      color: #999;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .popup-content {
+      padding: 20px;
+    }
+
+    .attach-type-toggle {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .toggle-btn {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fff;
+      color: #666;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .toggle-btn.active {
+      border-color: var(--brand);
+      background: var(--brand-soft);
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    .file-select-btn {
+      width: 100%;
+      padding: 16px;
+      border: 2px dashed #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+      color: #999;
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .attach-category {
+      display: flex;
+      gap: 16px;
+    }
+
+    .category-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .category-dot {
+      width: 16px;
+      height: 16px;
+      border: 4px solid var(--brand);
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 0 1px var(--brand);
+    }
+
+    .category-label {
+      font-size: 13px;
+      color: #333;
+    }
+
+    .popup-footer {
+      display: flex;
+      gap: 8px;
+      padding: 16px 20px 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .sheet-btn {
+      flex: 1;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .sheet-btn.gray {
+      background: #f5f5f5;
+      color: #666;
+    }
+
+    .sheet-btn.blue {
+      background: #7ba882;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="apply-modal-overlay"></div>
+    <div class="apply-modal">
+      <div class="page-content">
+        <div class="apply-job-info">
+          <h1 class="job-title">[부산 중구] 조리사(셰프) 정규직/파트타이머 채용</h1>
+          <div class="job-meta">
+            <span class="job-badge">지원분야</span>
+            <p class="job-description">요리사, 조리사, 셰프·주방장</p>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="section-header">
+            <p class="section-title">자기소개서</p>
+          </div>
+          <div class="resume-info">
+            <div>
+              <span class="resume-tag">기본</span>
+              <span class="resume-name">맡은 일에 최선을 다하는 알바생 입니다.</span>
+            </div>
+            <div class="resume-date">2026.01.29 저장</div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="section-header">
+            <p class="section-title">첨부파일</p>
+          </div>
+          <div class="button-grid">
+            <div class="button-item">파일첨부</div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="section-header">
+            <p class="section-title">연락처</p>
+          </div>
+          <div class="contact-info">
+            <div class="contact-row">
+              <div class="contact-label">휴대폰</div>
+              <div>010-1234-5678</div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">이메일</div>
+              <div>example@gmail.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <div class="footer-btn">지원하기</div>
+      </div>
+
+      <div class="layer-popup">
+        <div class="layer-popup-dim"></div>
+        <div class="layer-popup-container">
+          <div class="popup-header">
+            <h2 class="popup-title">파일첨부</h2>
+            <div class="popup-close">×</div>
+          </div>
+          <div class="popup-content">
+            <div class="attach-type-toggle">
+              <div class="toggle-btn active">파일추가</div>
+              <div class="toggle-btn">URL</div>
+            </div>
+            <div class="file-select-btn">파일을 선택해 주세요.</div>
+            <div class="attach-category">
+              <div class="category-option">
+                <div class="category-dot"></div>
+                <div class="category-label">자기소개서</div>
+              </div>
+            </div>
+          </div>
+          <div class="popup-footer">
+            <div class="sheet-btn gray">취소</div>
+            <div class="sheet-btn blue">확인</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

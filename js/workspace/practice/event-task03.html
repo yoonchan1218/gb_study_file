@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="box" style="width:100px; height:100px; background:blue;"></div>
+<button id="toggle">숨기기</button>
+</body>
+<script>
+    const box = document.getElementById("box");
+    const toggle = document.getElementById("toggle");
+
+    toggle.addEventListener("click",(e)=>{
+      if(box.style.display === "none"){
+        box.style.display = "block";
+        toggle.textContent = "숨기기";
+      }else{
+        box.style.display = "none";
+        toggle.textContent = "보이기";
+      }
+        
+    })
+</script>
+</html>

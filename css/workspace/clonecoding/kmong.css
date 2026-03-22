@@ -1,0 +1,285 @@
+@font-face {
+    font-family: "Pretendard";
+    src: url(../font/Pretendard-Bold.woff2) format("woff2");
+    font-weight: 700;
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: "Pretendard";
+    src: url(../font/Pretendard-Regular.woff2) format("woff2");
+     font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Pretendard";
+    src: url(../font/Pretendard-Medium.woff2) format("woff2");
+     font-weight: 500;
+     font-style: normal;
+}
+
+body {
+    margin: 0;
+    line-height: inherit;
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont,
+                 "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+    border: 0 solid #f2f3f7;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+
+blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
+    margin: 0;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+audio, canvas, embed, iframe, img, object, svg, video {
+    display: block;
+    vertical-align: middle;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.my-80px {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.leading-47px {
+    line-height: 47px;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.text-32px {
+    font-size: 32px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-30px {
+    margin-bottom: 30px;
+}
+
+.gap-3 {
+    gap: .75rem;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.rounded-lg {
+    border-radius: .5rem;
+}
+
+.w-340px  {
+    width: 340px;
+}
+
+.gap-10px {
+    gap: 10px;
+}
+
+.h-52px {
+    height: 52px;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+.text-gray-900 {
+    --tw-text-opacity: 1;
+    color: rgb(33 34 36 / var(--tw-text-opacity, 1));
+}
+
+.text-16px {
+    font-size: 16px;
+}
+
+.leading-21px{
+    line-height: 21px;
+}
+
+.text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.border-gray-400 {
+    --tw-border-opacity: 1;
+    border-color: rgb(200 202 210 / var(--tw-border-opacity, 1));
+}
+
+.border {
+    border-width: 1px;
+}
+
+.rounded-8px {
+    border-radius: 8px;
+}
+
+.relative {
+    position: relative;
+}
+
+.bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.mt-30px {
+    margin-top: 30px;
+}
+
+.gap-5 {
+    gap: 1.25rem;
+}
+
+.border-gray-200 {
+    --tw-border-opacity: 1;
+    border-color: rgb(242 243 247 / var(--tw-border-opacity, 1));
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}   
+
+.size-60px {
+    width: 60px;
+    height: 60px;
+}
+
+.size-28px{
+    width: 28px;
+    height: 28px;
+}
+
+.mt-60px{
+    margin-top: 60px;
+}
+
+.gap-2 {
+    gap: .5rem;
+}
+
+.font-normal {
+    font-weight: 400;
+}
+
+.leading-24px{
+    line-height: 24px;
+}
+
+.text-gray-800 {
+    --tw-text-opacity: 1;
+    color: rgb(48 52 65 / var(--tw-text-opacity, 1));
+}
+
+.text-16px{
+    font-size: 16px;
+}
+
+.underline {
+    text-decoration-line: underline;
+}
+
+.text-denim-500 {
+    --tw-text-opacity: 1;
+    color: rgb(17 106 212 / var(--tw-text-opacity, 1));
+}
+
+.w-240px{
+    width: 240px;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.border-gray-300 {
+    --tw-border-opacity: 1;
+    border-color: rgb(228 229 237 / var(--tw-border-opacity, 1));
+}
+
+.w-full {
+    width: 100%;
+}
+
+.mt-40px{
+    margin-top: 40px;
+}
+
+.mb-20px{
+    margin-bottom: 20px;
+}
+
+.no-underline {
+    text-decoration-line: none;
+}
+
+.border-0 {
+    border-width: 0;
+}
+
+hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+}
+
+button, input:where([type=button]), input:where([type=reset]), input:where([type=submit]) {
+    -webkit-appearance: button;
+    background-color: transparent;
+    ound-image: none;
+}

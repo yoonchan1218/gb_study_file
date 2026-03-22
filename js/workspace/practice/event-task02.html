@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<textarea id="content" placeholder="내용을 입력하세요"></textarea>
+<p><span id="char-count">0</span>/100</p>
+</body>
+<script>
+const content = document.getElementById("content");
+const span = document.getElementById("char-count");
+
+content.addEventListener("keyup", (e) => {
+    const length = content.value.length;
+    span.textContent = length;
+    
+    if(length > 100) {
+        span.style.color = "red";
+    } else {
+        span.style.color = "black";
+    }
+});
+</script>
+</html>

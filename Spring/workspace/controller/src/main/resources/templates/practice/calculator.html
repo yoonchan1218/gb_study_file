@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+</head>
+<body>
+<!--<div th:object="${calc}" th:with="expr=|*{num1}+*{num2}|">-->
+<!--    <h1 th:text="|${expr}=*{total}|"></h1>-->
+<!--    <h1 th:text="|${expr}=*{minus}|"></h1>-->
+<!--    <h1 th:text="|${expr}=*{multiple}|"></h1>-->
+<!--    <h1 th:text="|${expr}=*{divide}|"></h1>-->
+<!--</div>-->
+    <h1 th:object="${calc}">
+        <h1 th:text="|*{num1}+*{num2}=*{total}|"></h1>
+        <h1 th:text="|*{num1}+*{num2}=*{minus}|"></h1>
+        <h1 th:text="|*{num1}+*{num2}=*{multiple}|"></h1>
+        <h1 th:text="|*{num1}+*{num2}=*{divide}|"></h1>
+    </h1>
+</body>
+</html>

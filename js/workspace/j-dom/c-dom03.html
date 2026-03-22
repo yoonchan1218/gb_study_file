@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 선택자로 선택</title>
+</head>
+<body>
+    <h1>CSS 선택자로 선택</h1>
+    <p>갖고 싶은 위시 리스트</p>
+    <ul>
+        <li>자동차</li>
+        <li>컴퓨터</li>
+        <li>나의 마음</li>
+        <li>8학군 집</li>
+        <li>2층 집</li>
+    </ul>
+</body>
+<script>
+    // 내용 중 "집"이 들어가는 태그의 스타일을 아래와 같이 변경
+    // fontSize: 30px, color: pink
+    NodeList.prototype.filter = Array.prototype.filter;
+
+    const items = document.querySelectorAll("ul li");
+    items.filter((item) => item.textContent.includes("집")).forEach((item) => {
+        item.style.fontSize = "30px";
+        item.style.color = "pink";
+    });
+    
+</script>
+</html>
